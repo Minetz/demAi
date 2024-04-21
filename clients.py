@@ -1,5 +1,5 @@
 from openai import OpenAI
-from dotenv import load_dotenv
+import streamlit as st
 import os
 
 def get_model_client():
@@ -11,4 +11,4 @@ def get_openai_client():
     """clients.py method to return the openai client object"""
     # get api key from .env file
     load_dotenv()
-    return OpenAI(api_key=os.getenv('openai_key'))
+    return OpenAI(st.secrets['openai_key'])
