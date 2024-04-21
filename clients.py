@@ -9,4 +9,4 @@ def get_model_client():
 
 def get_openai_client():
     """clients.py method to return the openai client object"""
-    return OpenAI(st.secrets['openai_key'])
+    return OpenAI(api_key=st.secrets['openai_key'])
