@@ -1,2 +1,2 @@
 # demAi
- A streamlit community Cloud app to understand personality traits and political orientation
+ A streamlit Community Cloud app using GPT to help understand the relation between personality traits and political preferences.
