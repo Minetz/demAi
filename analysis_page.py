@@ -44,9 +44,10 @@ def analysis_page():
         # Save the analysis
         if st.session_state['analysis'] == []:
             st.session_state['analysis'] = analysis
-        # Add a button to generate the report
-        generate_report_button = st.button("Generate Report")
-        if generate_report_button:
-            st.session_state['report'] = True
-            st.rerun()
+        if st.session_state['report'] is False:
+            # Add a button to generate the report
+            generate_report_button = st.button("Generate Report")
+            if generate_report_button:
+                st.session_state['report'] = True
+                st.rerun()
 
