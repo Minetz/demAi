@@ -42,14 +42,15 @@ def get_analysis_prompt(question, answer):
 You have been asked to analyze the following questions and answers to determine the personality traits of the respondent.
 With the given question, trait and answer give a score from 1 to 5 on how much the answer reflects the trait.
 Return your answer in the following format:
-Score: <number from 1 to 5>
-
-Explaination: <explaination of the score>
+Score: < int from 1 to 5 extremes included >
+Trait: < the trait you with to assess >
+Explaination: < explaination of the score >
 
 Question:{question['Question']}
-Example answer a: {question['example_a']["text"]} , trait: {question['example_a']["text"]}
-Example answer b: {question['example_b']["text"]} , trait: {question['example_b']["trait"]}
+
 Answer: {answer}
+
+Do not generate any other question. Analyse only the question and answer given.
 """
 
 def get_report_prompt(questions, answers, analysis)->str:
@@ -60,17 +61,14 @@ def get_report_prompt(questions, answers, analysis)->str:
 Your goal is to provide a short but insightful report assessing the political leaning of the respondent.
 The information you have available is the questions asked, the answers given and the analysis of the answers (analysis you provided).
 Question 1: {questions[0]['Question']}
-Possible assessed traits: {questions[0]['example_a']['trait']} , {questions[0]['example_b']['trait']}
 Answer given by user: {answers[0]}
 Analysis of response: {analysis[0]}
 
 Question 2: {questions[1]['Question']}
-Possible assessed traits: {questions[1]['example_a']['trait']} , {questions[1]['example_b']['trait']}
 Answer given by user: {answers[1]}
 Analysis of response: {analysis[1]}
 
 Question 3: {questions[2]['Question']}
-Possible assessed traits: {questions[2]['example_a']['trait']} , {questions[2]['example_b']['trait']}
 Answer given by user: {answers[2]}
 Analysis of response: {analysis[2]}
 
