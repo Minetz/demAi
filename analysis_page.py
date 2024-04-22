@@ -28,7 +28,7 @@ def analysis_page():
                 st.write(f"Question {i+1}: {questions[i]['Question']}")
                 st.write(f"Your Answer: {answers[i]}")
                 # Write the prompt we are quantifying
-                st.write(f"Trait: {questions[i]['example_a']['trait']}")
+                #st.write(f"Trait: {questions[i]['example_a']['trait']}")
                 # If we have not done the analysis yet
                 if st.session_state['analysis'] == []:
                     # Build the prompt for the analysis
