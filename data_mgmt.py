@@ -23,14 +23,8 @@ Options are:
         return None
 
     if name == "sys_prompt":
-        return """Align this question generation to the app's mission of enhancing users' understanding of their own political views through the analysis of personality traits. The aim is to engage users in reflecting on their political stance and how it correlates with broader psychological metrics."""
+        return """You are an expert psychologist in understanding personality traits. The goal of this app is to help users understand their political views by analysing their personality traits and political views based on the answers to the questions they provide."""
 
-    elif name == "start_user_prompt":
-        return """Generate three ethical questions that map well to big five, or OCEAN, personality traits : Openness , Conscientiousness , Extraversion , Agreeableness , Neuroticism .
-For each question write which big five dimension you wish to assess and give examples of opposite sides of the spectrum, specify which personality trait you wish to assess.\\n\\nFormat:\\n1. <question to ask user>
-    a.<example of extreme of a given big five dimension> (<personality trait>)
-    b.<example of other extreme of the same big five dimension> (<personality trait>)"""
-    
     elif name == "welcome_message":
         return """Welcome to demAi! This app helps you explore your political views by asking you a series of questions.
 Each question is designed to help highlight traits of your personality (using the OCEAN or Big Five personality model).
@@ -46,7 +40,7 @@ def get_analysis_prompt(question, answer):
     
     return f"""You are an expert psychologist in understanding personality traits. 
 You have been asked to analyze the following questions and answers to determine the personality traits of the respondent.
-Read the question, the trait asked and given a score from 1 to 5 on how much the answer reflects the trait.
+With the given question, trait and answer give a score from 1 to 5 on how much the answer reflects the trait.
 Return your answer in the following format:
 Score: <number from 1 to 5>
 

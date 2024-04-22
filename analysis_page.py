@@ -10,6 +10,7 @@ def analysis_page():
     questions = st.session_state['generated_questions']
     answers = st.session_state['responses']
     expand = True
+    
     # Generate report summary if analysis has been performed!
     if st.session_state['report']:
         with st.container(border=True):
