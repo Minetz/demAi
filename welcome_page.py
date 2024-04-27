@@ -1,20 +1,22 @@
 import streamlit as st
-from data_mgmt import get_session_questions
+from data_mgmt import get_pickled_data
 
 def welcome_page():
     """Welcome page for the app"""
-    st.title("demAi")
-    st.markdown(st.session_state['welcome_message'])
-    
+    st.title("<App Title>")
+    st.markdown("<Some markdown>")
+
+    # Loading
     with st.spinner('Wait for it...'):
-        if st.session_state['generated_questions'] == []:
-            st.session_state['generated_questions'] = get_session_questions()    
+        # Load required data
+        if st.session_state['<data state>'] == []:
+            st.session_state['<data state>'] = get_pickled_data()    
     
-    st.success('Questions generated!')
+    st.success('<Success>')
 
 
     start_button = st.button("Start")
 
     if start_button:
-        st.session_state['current_page'] = "question_page"
+        st.session_state['current_page'] = "<first_page_name>"
         st.rerun()
