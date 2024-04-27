@@ -20,8 +20,11 @@ def get_response_from_model(messages=[]):
         )
 
 # OpenAi API
-def get_gpt_response(message):
-    client = get_openai_client()
+def get_gpt_response(message, local=True):
+    if local:
+        client = get_model_client()
+    else:
+        client = get_openai_client()
     completion = client.chat.completions.create(
         model="gpt-4", #"gpt-3.5-turbo" or "gpt-4"
         messages=[
@@ -30,3 +33,5 @@ def get_gpt_response(message):
         ]
         )
     return completion.choices[0].message.content
+
+
