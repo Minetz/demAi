@@ -33,5 +33,3 @@ def get_gpt_response(message, local=False):
         ]
         )
     return completion.choices[0].message.content
-
-
