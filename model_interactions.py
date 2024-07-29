@@ -20,13 +20,13 @@ def get_response_from_model(messages=[]):
         )
 
 # OpenAi API
-def get_gpt_response(message, local=True):
+def get_gpt_response(message, local=False):
     if local:
         client = get_model_client()
     else:
         client = get_openai_client()
     completion = client.chat.completions.create(
-        model="gpt-4", #"gpt-3.5-turbo" or "gpt-4"
+        model="gpt-4o", #"gpt-3.5-turbo" or "gpt-4"
         messages=[
             {"role": "system", "content": get_prompt('sys_prompt')},
             {"role": "user", "content": message}
